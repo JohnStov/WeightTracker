@@ -1,4 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
+using OxyPlot;
+using OxyPlot.Series;
 
 namespace WeightTracker.ViewModel
 {
@@ -29,6 +34,17 @@ namespace WeightTracker.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+
+
+            var series = new LineSeries();
+            PlotModel = new PlotModel();
+            PlotModel.Series.Add(series);
+
+            series.Points.Add(new DataPoint(1.0, 1.0));
+            series.Points.Add(new DataPoint(2.0, 1.5));
+            series.Points.Add(new DataPoint(3.0, 1.75));
         }
+
+        public PlotModel PlotModel { get; private set; }
     }
 }

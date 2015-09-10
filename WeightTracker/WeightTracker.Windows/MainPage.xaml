@@ -5,9 +5,19 @@
     xmlns:local="using:WeightTracker"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:oxy="using:OxyPlot.Windows"
+    xmlns:viewModel="using:WeightTracker.ViewModel"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModel:MainViewModel/>
+    </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="42">Weight Tracker</TextBlock>
+        <oxy:PlotView Grid.Row="1" Model="{Binding PlotModel}"/>
     </Grid>
 </Page>
