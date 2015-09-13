@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using GalaSoft.MvvmLight;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using WeightTracker.AppModel;
 
 namespace WeightTracker.ViewModel
 {
@@ -38,19 +40,26 @@ namespace WeightTracker.ViewModel
             ////}
 
 
-            var series = new LineSeries {MarkerType = MarkerType.Circle};
+            series = new LineSeries {MarkerType = MarkerType.Circle};
             PlotModel = new PlotModel();
             PlotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, MajorStep = 1.0 });
             PlotModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left });
             PlotModel.Series.Add(series);
 
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 4)), 96.4));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 5)), 96.2));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 7)), 95.8));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 8)), 95.8));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 9)), 96.0));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 10)), 96.6));
-            series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2015, 9, 11)), 97.0));
+            Person = new Person();
+        }
+
+        private LineSeries series;
+
+        public Person Person
+        {
+            set
+            {
+                foreach (var dataPoint in value.WeightHistory)
+                {
+                    series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(dataPoint.Key), dataPoint.Value));
+                }
+            }            
         }
 
         public PlotModel PlotModel { get; private set; }
