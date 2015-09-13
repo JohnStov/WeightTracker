@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using GalaSoft.MvvmLight;
 using OxyPlot;
 using OxyPlot.Axes;
@@ -56,9 +51,7 @@ namespace WeightTracker.ViewModel
             set
             {
                 foreach (var dataPoint in value.WeightHistory)
-                {
                     series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(dataPoint.Key), dataPoint.Value));
-                }
             }            
         }
 
