@@ -21,4 +21,20 @@
         <TextBlock FontSize="42">Weight Tracker</TextBlock>
         <oxy:PlotView Grid.Row="1" Model="{Binding PlotModel}"/>
     </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.PrimaryCommands>
+                <AppBarButton Label="Weigh" >
+                    <AppBarButton.Icon>
+                        <BitmapIcon HorizontalAlignment="Center" VerticalAlignment="Center" UriSource="Assets/add.png"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="AppBarSec" Label="Label">
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
