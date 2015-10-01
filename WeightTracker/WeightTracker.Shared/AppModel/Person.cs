@@ -23,7 +23,13 @@ namespace WeightTracker.AppModel
                 { new DateTime(2015, 9, 16), 95.6f },
                 { new DateTime(2015, 9, 17), 95.4f },
                 { new DateTime(2015, 9, 19), 96.0f },
-                { new DateTime(2015, 9, 20), 95.6f }
+                { new DateTime(2015, 9, 20), 95.6f },
+                { new DateTime(2015, 9, 21), 96.2f },
+                { new DateTime(2015, 9, 22), 96.6f },
+                { new DateTime(2015, 9, 23), 95.6f },
+                { new DateTime(2015, 9, 24), 96.0f },
+                { new DateTime(2015, 9, 29), 95.8f },
+                { new DateTime(2015, 9, 30), 95.4f },
             };
 
             HeightHistory = new Dictionary<DateTime, float>

@@ -1,4 +1,6 @@
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -42,9 +44,13 @@ namespace WeightTracker.ViewModel
             PlotModel.Series.Add(series);
 
             Person = new Person();
+
+            Weigh = new RelayCommand(() =>
+            {
+            });
         }
 
-        private LineSeries series;
+        private readonly LineSeries series;
 
         public Person Person
         {
@@ -55,6 +61,8 @@ namespace WeightTracker.ViewModel
             }            
         }
 
+        public ICommand Weigh { get; private set; }
+        
         public PlotModel PlotModel { get; private set; }
     }
 }

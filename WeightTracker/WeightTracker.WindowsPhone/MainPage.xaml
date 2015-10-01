@@ -25,7 +25,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton Label="Weigh" >
+                <AppBarButton Label="Weigh"  Command="{Binding Weigh}">
                     <AppBarButton.Icon>
                         <BitmapIcon HorizontalAlignment="Center" VerticalAlignment="Center" UriSource="Assets/add.png"/>
                     </AppBarButton.Icon>
